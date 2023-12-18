@@ -1,1 +1,37 @@
+#Installing samba
+  >sudo yum install samba
 
+#Creating folder for sharing 
+  >sudo mkdir /home/shared_folder
+
+#Executing samba service
+  >sudo systemctl start smb
+
+#Adding samba user 
+  >sudo useradd -m -s /sbin//nologin selso
+  >smbpasswd -a selso
+
+#Changing access permission to folder
+  >sudo chmod -R 0777 /home/shared_folder
+
+#Open configuration file 
+  >sudo vi /etc/samba/smb.conf
+add configurations to smb.conf
+  [shared_folder]
+
+        path = /home/shared_folder
+        inherit acls = yes
+        public = yes
+        writable = yes
+        valid users = selso
+        read list = selso
+        write list = selso
+        browseable = yes
+        read only =no
+        guest ok = yes
+        create mask = 0777
+        directory mask = 0775
+ #owner's appointment 
+    >sudo chown -R user:group /home/shared_folder
+  #Show owner of folder 
+    >stat -c "%U" /home/shared_folder
