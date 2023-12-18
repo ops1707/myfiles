@@ -31,7 +31,15 @@ add configurations to smb.conf
         guest ok = yes
         create mask = 0777
         directory mask = 0775
- #owner's appointment 
-    >sudo chown -R user:group /home/shared_folder
-  #Show owner of folder 
-    >stat -c "%U" /home/shared_folder
+
+#owner's appointment 
+   >sudo chown -R user:group /home/shared_folder
+ 
+#Show owner of folder 
+   >stat -c "%U" /home/shared_folder
+
+#Add service samba to firewall
+   >sudo firewall-cmd --add-service=samba --permanent
+
+#reload firewall
+   >sudo firewall-cmd --reload
