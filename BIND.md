@@ -44,3 +44,45 @@
         zone "." IN {
                 type hint;
                 file "named.ca";
+   # Install utilities name server BIND
+        > yum install bind-utils
+   # Check BIND request does it work
+        > nslookup kun.uz 192.168.1.100
+   # It was origin configurations , now we will create our dns-zone. First of all should make directory
+        > mkdir /etc/named/master-zones
+   # After we should create .zone configuration file 
+        > vi /etc/named/master-zones/sj.uz.local.zone
+   # write into this file next configurations 
+         $ttl 3600
+         $ORIGIN  sj.uz.
+         sj.uz.               IN              SOA  (
+         ns.sj.uz.
+         abuse.sj.uz.
+                                2024041201
+                                10800
+                                1200
+                                604800
+                                3600   )
+
+         @                               IN              NS              ns.sj.uz.
+         @                               IN              NS              ns2.sj.uz.
+         ns                              IN              NS              bicasso.sj.uz.
+
+         @                               IN              A                192.168.1.100
+         ns                              IN              A                192.168.1.50
+         ns2                             IN              A                192.168.1.100
+         bicasso                         IN              A                192.168.1.50
+   # after that we will add several strings to /etc/named.conf 
+         zone "sj.uz" {
+                 type master;
+                 file "/etc/named/master-zones/sj.uz.local.zone";
+         };
+   # Checking dns zone 
+        > named-checkzone sj.uz /etc/named/master-zones/sj.uz.local.zone
+   # At the end restart service 
+        > systemctl restart named
+        
+
+
+
+   
