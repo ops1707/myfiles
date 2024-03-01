@@ -1,9 +1,9 @@
 # after installing MySQL server we will enter the default database via default user "root"
     > mysql -u root -p 
-# You may change password 
-    > ALTER USER 'username'@'hostname' IDENTIFIED BY 'new_password';
 # we need password , at the end of installing mysql gives temprorary password. You can show by command
     > grep 'temporary password' /var/log/mysqld.log
+# You may change password 
+    > ALTER USER 'username'@'hostname' IDENTIFIED BY 'new_password';    
 #  As soon you enter you have to create new user and password also drop old one(default)
     > CREATE USER 'new_username'@'hostname' IDENTIFIED BY 'password';
 # We will give privilege to new_user     
