@@ -31,6 +31,8 @@
      );     
 # Displaying table 
     > SHOW COLUMNS FROM staffs;
+# or 
+    > SELECT * FROM staffs;
 # Add data into table 
     > INSERT INTO stuffs ( username, occupation) VALUES
      ('James', 'accauntant'),
