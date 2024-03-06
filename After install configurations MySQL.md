@@ -22,7 +22,7 @@
 # after entering immediately switch to new database for using 
     > USE dbase
 # Creating new table here this is "staffs" 
-    > CREATE TABLE users 
+    > CREATE TABLE staffs 
      (
       id INT AUTO_INCREMENT PRIMARY KEY,
       username VARCHAR(50) NOT NULL,
