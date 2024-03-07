@@ -39,8 +39,23 @@
      ('robert','target manager');
 # To check data by row
     > SELECT username, occupation FROM staffs;
-    
-
+# SETTING PASSWORD
+                    
+# If you forgot your user's password you may set
+# initialy you should stop service
+    > sudo systemctl stop mysqld
+# Then to shift safe mode    
+    >  systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
+# in this mode service does not require password to connect.
+# Connect via superuser and change password:
+    > mysql -u root
+    > use mysql;
+    > update user SET PASSWORD=PASSWORD("пароль") WHERE USER='root';
+    > flush privileges;
+# After these acts you should delete var "MYSQLD_OPTS" 
+    > sudo systemctl unset-environment MYSQLD_OPTS
+# There is last case you should do is run the service 
+    > sudo systemctl start mysqld
 
 
     
