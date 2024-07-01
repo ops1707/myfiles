@@ -16,7 +16,7 @@
 # this command demonstrates running docker containers 
      > sudo docker ps 
      > sudo docker ps -a
-# Running container "hello-world" 
+# Creating container "hello-world" 
      > sudo docker run Hello-world 
 # If you want set timer for container 
      > sudo docker run <container_name> 
