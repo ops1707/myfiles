@@ -20,5 +20,11 @@
      > sudo docker run Hello-world 
 # If you want set timer for container 
      > sudo docker run <container_name> 
+# If you want to delete container 
+     > sudo docker rm <container_id>
+# Removing docker image  
+     > sudo rmi <image_id>
+# Install docker image order by tag   
+     > sudo docker run ubuntu:<image_tag> echo "Hello Docker"
      
-     
+
