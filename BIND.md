@@ -6,7 +6,7 @@
   # Install and run chrony before starting named/bind service fo synchronization with ntp server 
     >yum install chrony
     >timedatectl set-timezone Asia/Tashkent
-    >syatemctl enable chronyd --now
+    >systemctl enable chronyd --now
   # we should write suitable configuration to named.conf file 
     >vi /etc/named.conf
       options {
