@@ -8,7 +8,7 @@
 # Create folder for keys and install keys          
      > sudo mkdir -p /etc/apt/keyrings
      > curl -fsSL https://get.docker.com -o get-docker.sh
-# Check script does ot work ?
+# Check script does it work ?
      > sudo DRY_RUN=1 sh ./get-docker.sh
 # Adding user for docker then add this user to docker group
      > sudo useradd -m -s /bin/bash admin
