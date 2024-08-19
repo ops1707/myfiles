@@ -1,5 +1,5 @@
 # installation and configuration of BIND name server
-  # First of update and upgrade system 
+  # First of all update and upgrade system 
     >sudo apt update && sudo apt upgrade -y
   # Than begin installation 
     >sudo apt/yum install bind 
