@@ -46,8 +46,27 @@
     GROUP BY classes.class_name
     ORDER BY quantity_of_studets DESC
     LIMIT 1;
+
+
 # Find the students who have not joined any courses
     SELECT students.name
     FROM students
     LEFT JOIN classes ON students.class_id = classes.id
     WHERE classes.id IS NULL;
+
+
+
+ # Task 3 Print average number of students in each class  
+     SELECT avg(count_of_students) 
+     FROM (
+             SELECT count(students.id) AS count_of_students
+             FROM students 
+             INNER JOIN classes ON students.class_id = classes.id
+             GROUP BY classes.class_name
+     ) AS subquary;
+
+     
+
+
+
+     
