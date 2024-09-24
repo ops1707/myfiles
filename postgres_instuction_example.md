@@ -65,7 +65,7 @@
              GROUP BY classes.class_name
      ) AS subquary;
 
-     
+   
 
 
 
