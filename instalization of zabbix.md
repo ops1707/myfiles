@@ -74,4 +74,12 @@
 # Run and enable PHP-FPM: 
     > systemctl start php-fpm
     > systemctl enable php-fpm
-        
+# Restart zabbix-server and zabbix-agent
+    > systemctl start zabbix-server zabbix-agent
+    > systemctl enable zabbix-server zabbix-agent
+# Configure Firewall and allow ports to connect to web-interface 
+    > firewall-cmd --permanent --add-port=8080/tcp
+    > firewall-cmd --permanent --add-port=10051/tcp
+    > firewall-cmd --reload
+
+    
