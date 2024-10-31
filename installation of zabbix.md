@@ -57,6 +57,7 @@
     > yum-config-manager --enable remi-php72
     > yum install -y php php-fpm php-pgsql php-mbstring php-gd
 # Edit conf file zabbix.conf PHP
+    > chown -R nginx:nginx /etc/zabbix/web
     > vi /etc/php-fpm.d/zabbix.conf
         [zabbix]
         user = nginx
