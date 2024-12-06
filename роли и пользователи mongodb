@@ -1,0 +1,422 @@
+Создаем пользовательскую роль с ограниченными возможностями на следующие действия:
+Find – для получения записей с базы данных
+Update – для обновления записей
+Insert – для добавления записей
+db.createRole({
+    role: "basicRole",
+    privileges: [{
+        resource: {
+            db: "cashatm",
+            collection: ""
+        },
+        actions: [
+            "find", "update", "insert"
+        ]
+    }],
+    roles: [{
+        role: "read",
+        db: "cashatm"
+    }]
+})
+
+Далее создаем пользователя:
+db.createUser(
+    {
+        user: "dbtest",
+       pwd: "123456",
+       roles: [{ role: "basicRole", db: "cashatm" }]
+   }
+)
+
+
+1.
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashatm",
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashatm"
+  }]
+})
+
+db.createUser(
+   {
+      user: "dbatm",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashatm" }]
+ }
+)
+
+2.
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashauth",
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashauth"
+  }]
+})
+
+db.createUser(
+   {
+      user: "dbauth",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashauth" }]
+ }
+)
+
+3. 
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashcard", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashcard" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbcard",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashcard" }]
+ }
+)
+
+4.
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashdenper", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashdenper" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbdenper",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashdenper" }]
+ }
+)
+
+5.
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashencashment", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashencashment" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbencashment",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashencashment" }]
+ }
+)
+
+6. 
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashexchange", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashexchange" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbexchange",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashexchange" }]
+ }
+)
+
+7. 
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashintertransfer", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashintertransfer" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbintertransfer",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashintertransfer" }]
+ }
+)
+
+8. 
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashloan", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashloan" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbloan",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashloan" }]
+ }
+)
+
+9. 
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashmunis", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashmunis" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbmunis",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashmunis" }]
+ }
+)
+
+
+
+
+10. 
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashpaynet", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashpaynet" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbpaynet",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashpaynet" }]
+ }
+)
+
+11
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashrefs", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashrefs" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbrefs",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashrefs" }]
+ }
+)
+
+12 
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashtreasury", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashtreasury" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbtreasury",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashtreasury" }]
+ }
+)
+
+13 
+
+db.createRole({
+    role: "basicRole",
+  privileges: [{
+       resource: {
+           db: "cashtx", 
+          collection: ""
+      },
+      actions: [
+          "find", "update", "insert"
+      ]
+  }],
+  roles: [{
+      role: "read",
+      db: "cashtx" 
+  }]
+})
+
+
+db.createUser(
+   {
+      user: "dbtx",
+     pwd: "Passw0rd!",
+     roles: [{ role: "basicRole", db: "cashtx" }]
+ }
+)
+14
+db.createRole({
+    role: "basicRole",
+    privileges: [{
+        resource: {
+            db: "cash_client_account",
+            collection: ""
+        },
+        actions: [
+            "find", "update", "insert"
+        ]
+    }],
+    roles: [{
+        role: "read",
+        db: "cash_client_account"
+    }]
+})
+
+
+
+db.createUser(
+    {
+    user: "dbcash_client_account",
+       pwd: "Passw0rd!",
+       roles: [{ role: "basicRole", db: "cash_client_account" }]
+   }
+)
+
+
+
+
