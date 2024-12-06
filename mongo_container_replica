@@ -1,0 +1,48 @@
+sudo docker run -d --name mongo01 \
+-v /home/ops/mongo/mongo.conf:/etc/mongo.conf \
+-v /home/ops/mongo/key.txt:/etc/key.txt \
+-v /home/ops/data/data:/data \
+-p 27017:27017 \
+--add-host mongo01:127.0.0.1 \
+--add-host mongo02:127.0.0.1 \
+--add-host mongo03:127.0.0.1 \
+mongo:4.4.19 \
+mongod --config /etc/mongo.conf
+
+sudo docker run -d --name mongo02 \
+-v /home/ops/mongo/mongo.conf:/etc/mongo.conf \
+-v /home/ops/mongo/key.txt:/etc/key.txt \
+-v /home/ops/data/data:/data \
+-p 27018:27017 \
+--add-host mongo01:127.0.0.1 \
+--add-host mongo02:127.0.0.1 \
+--add-host mongo03:127.0.0.1 \
+mongo:4.4.19 \
+mongod --config /etc/mongo.conf
+
+sudo docker run -d --name mongo03 \
+-v /home/ops/mongo/mongo.conf:/etc/mongo.conf \
+-v /home/ops/mongo/key.txt:/etc/key.txt \
+-v /home/ops/data/data:/data \
+-p 27019:27017 \
+--add-host mongo01:127.0.0.1 \
+--add-host mongo02:127.0.0.1 \
+--add-host mongo03:127.0.0.1 \
+mongo:4.4.19 \
+mongod --config /etc/mongo.conf
+
+
+rs.initiate(
+   {
+      _id: "cashierReplication",
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo01:27017" },
+         { _id: 1, host : "mongo02:27017" },
+         { _id: 2, host : "mongo03:27017" }
+      ]
+   }
+)
+
+
+
