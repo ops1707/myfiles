@@ -91,7 +91,7 @@
     --add-host kassaprod01:ip_address \
     --add-host kassaprod02:ip_address \
     --add-host kassaapp01:ip_address \
-    10.10.12.99:5000/mongo:4.4.19 \
+    mongo:4.4.19 \
     mongod --config /etc/mongo.conf
 
 # После открываем контейнер командой: 
@@ -105,8 +105,8 @@
 # И создаем пользователей:
     db.createUser(
     {
-    user: "omnipotent",
-    pwd: "123456",
+    user: "User",
+    pwd: "Password",
     roles: [ { role: "root", db: "admin" } ]
     }
     )
@@ -114,8 +114,8 @@
     use admin;
     db.createUser(
     {
-    user: "omniAdmin",
-    pwd: "123456",
+    user: "User",
+    pwd: "Password",
     roles: [ { role: "root", db: "admin" } ]
     }
     )
@@ -240,8 +240,8 @@
     #     PEMKeyFile: /etc/ssl/kassaprod01.pem
     #     CAFile: /etc/ssl/mongoCA.crt
     #     clusterFile: /etc/ssl/kassaprod01.pem
-    #     PEMKeyPassword: Passw0rd!
-    #     clusterPassword: Passw0rd!
+    #     PEMKeyPassword: Password
+    #     clusterPassword: Password
 
     # how the process runs
     processManagement:
