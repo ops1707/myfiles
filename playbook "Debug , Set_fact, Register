@@ -1,0 +1,27 @@
+---
+- name: My Super Playbook for Variables Lesson
+  hosts: prod_servers
+  become: yes
+
+
+  vars:
+    message1: Hello
+    message2: World
+
+
+  tasks:
+  - name: Print variable
+    debug:
+      msg: "Owner of this server -->{{ owner }}"
+
+  - set_fact: full_message="{{ message1 }} {{ message2 }} from {{ owner }}"
+
+  - debug:
+      var: full_message
+
+  - shell: uptime
+    register: results
+
+  - debug:
+      var: results.stdout
+
