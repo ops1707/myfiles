@@ -50,4 +50,49 @@
 🔹 Полезная команда для мониторинга ошибок OOM:
 
     journalctl -k | grep -i -E 'killed process|out of memory'
+🔸 1. Фильтрация логов по сервису
+
+Журналы сервисов systemd можно смотреть через -u <имя_сервиса>.service:
+▶ Примеры:
+
+# Логи nginx
+    journalctl -u nginx.service
+
+# Логи MongoDB (обычно unit называется так)
+    journalctl -u mongod.service
+
+# Логи Docker
+    journalctl -u docker.service
+
+Дополнительные флаги:
+
+# Только за сегодня
+    journalctl -u nginx.service --since today
+
+# За последние 2 часа
+    journalctl -u nginx.service --since "2 hours ago"
+
+# В реальном времени (аналог tail -f)
+    journalctl -u nginx.service -f
+
+🔸 2. Экспорт логов в файл
+▶ Простой экспорт в текст:
+
+    journalctl -u nginx.service > nginx-logs.txt
+
+▶ Экспорт с временными рамками:
+
+    journalctl -u mongod.service --since "2025-06-09 13:00" --until "2025-06-09 14:30" > mongo-logs.txt
+
+🔸 3. Экспорт логов в бинарном формате (для переноса на другую машину)
+
+    journalctl --since "2025-06-09" --until "2025-06-10" --output=export > logs.bin
+
+На другой машине:
+
+    journalctl --file=logs.bin
+
+🔸 4. Экспорт JSON-совместимого формата (для анализа парсерами)
+
+    journalctl -u docker.service -o json-pretty > docker-logs.json
 
