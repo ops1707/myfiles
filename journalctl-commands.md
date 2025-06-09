@@ -20,7 +20,7 @@
 
 # 5. Логи ядра
 
-        journalctl -k
+    journalctl -k
 Только сообщения от ядра Linux (например, Out of memory).
 
 # 6. Фильтрация по юниту systemd
