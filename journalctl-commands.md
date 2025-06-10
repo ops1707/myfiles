@@ -91,7 +91,11 @@
 На другой машине:
 
     journalctl --file=logs.bin
-# 1. Проверка объема занимаемого журнала логов
+
+# 14. Экспорт JSON-совместимого формата (для анализа парсерами)
+
+    journalctl -u docker.service -o json-pretty > docker-logs.json
+# 15. Проверка объема занимаемого журнала логов
 
 Для этого используется команда journalctl --disk-usage:
 
@@ -106,7 +110,7 @@ Archived and active journals take up 1.5G in the file system.
     sudo systemd-analyze log-level
     sudo systemd-analyze log-time
 
-# 2. Очистка логов journalctl
+# 16. Очистка логов journalctl
 
  Журналы хранятся в /var/log/journal, и их можно ограничить по размеру, времени или числу файлов.
 ✅ Удалить логи старше 2 недель:
@@ -120,9 +124,5 @@ Archived and active journals take up 1.5G in the file system.
 ✅ Удалить, если больше 50 файлов:
 
     sudo journalctl --vacuum-files=50
-
 ⚠️ Очистка применяется ко всем журналам. Для очистки отдельных сервисов journalctl напрямую не предоставляет фильтрации — но можно вручную удалить нужные файлы в /var/log/journal/.
-# 14. Экспорт JSON-совместимого формата (для анализа парсерами)
-
-    journalctl -u docker.service -o json-pretty > docker-logs.json
 
