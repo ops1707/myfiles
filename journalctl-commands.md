@@ -132,3 +132,5 @@ journalctl (если systemd и логи не очищены)
     journalctl -k | grep -i -E 'killed process|out of memory'
 
 journalctl добавляет человеческое время:
+# Без человеческое время:
+    dmesg | grep -i -E 'killed process|out of memory'
