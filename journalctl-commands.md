@@ -126,3 +126,9 @@ Archived and active journals take up 1.5G in the file system.
     sudo journalctl --vacuum-files=50
 ⚠️ Очистка применяется ко всем журналам. Для очистки отдельных сервисов journalctl напрямую не предоставляет фильтрации — но можно вручную удалить нужные файлы в /var/log/journal/.
 
+# 17 Как посмотреть точное время OOM:
+journalctl (если systemd и логи не очищены)
+
+    journalctl -k | grep -i -E 'killed process|out of memory'
+
+journalctl добавляет человеческое время:
