@@ -61,7 +61,7 @@
     SLOWLOG GET
     LATENCY DOCTOR
 # Посмотреть IP, откуда идут подключения
-    redis-cli -p 26379 -a Passw0rd! CLIENT LIST \
+    redis-cli -p 26379 -a "password" CLIENT LIST \
      | awk -F'addr=' '{print $2}' \
      | awk '{print $1}' \
      | cut -d: -f1 \
