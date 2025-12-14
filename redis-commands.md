@@ -60,5 +60,15 @@
     MONITOR
     SLOWLOG GET
     LATENCY DOCTOR
-# 
- 
+# Посмотреть IP, откуда идут подключения
+    redis-cli -p 26379 -a Passw0rd! CLIENT LIST \
+     | awk -F'addr=' '{print $2}' \
+     | awk '{print $1}' \
+     | cut -d: -f1 \
+     | sort | uniq -c | sort -nr | head
+# Посчитать клиентов по типу
+  # Обычные клиенты
+    redis-cli -p 26379 -a Password CLIENT LIST TYPE normal | wc -l
+
+  # Sentinel клиенты
+    redis-cli -p 26379 -a Password CLIENT LIST TYPE sentinel | wc -l
